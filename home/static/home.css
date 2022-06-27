@@ -1,0 +1,31 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body {
+   font-family: 'Open Sans',serif;
+   background-color: rgb(36, 39, 44);
+}
+
+.container {
+    margin: 30px;
+}
+
+.container-title {
+    text-align: center;
+    color: white;
+}
+
+.sub-container-title {
+    color: white;
+    text-decoration: underline;
+}
+
+.url-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.url-list a {
+    text-decoration: none;
+    font-size: 16px;
+    color: white;
+}
