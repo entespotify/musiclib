@@ -1,29 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Music Library</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'home.css' %}" type="text/css" >
-  </head>
-  <body>
-    <div class="container" >
-        <h2 class="container-title">MUSIC LIB</h2>
-        <div class="sub-container">
-            <h3 class='sub-container-title'>Quick links</h3>
-            <ul class="url-list">
-                <li><a href="/admin" target="_blank">Admin</a></li>
-                <li><a href="/accounts" target="_blank">Accounts</a></li>
-                <li><a href="/tracks" target="_blank">Tracks</a></li>
-            </ul>
-            <h3 class='sub-container-title'>Apis</h3>
-            <ul class="url-list">
-                <li><a href="/api/accounts" target="_blank">Accounts</a></li>
-                <li><a href="/api/tracks" target="_blank">Tracks</a></li>
-            </ul>
-        </div>
-    </div>
-  </body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="container">
+	<h2 class="container-title">MUSIC LIB</h2>
+	<div class="sub-container">
+		<h3 class='sub-container-title'>Quick links</h3>
+		<ul class="url-list">
+			<li><a href="/admin" target="_blank">Admin</a></li>
+			<li><a href="/accounts" target="_blank">Accounts</a></li>
+			<li><a href="/tracks" target="_blank">Tracks</a></li>
+		</ul>
+		<h3 class='sub-container-title'>Apis</h3>
+		<ul class="url-list">
+			<li><a href="/api/accounts" target="_blank">Accounts</a></li>
+			<li><a href="/api/tracks" target="_blank">Tracks</a></li>
+		</ul>
+	</div>
+	<div><a href="/logout"> Log Out </a></div>
+	<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+		<div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+			<div class="toast-header">
+				<img src="..." class="rounded me-2" alt="...">
+				<strong class="me-auto">Musiclib</strong>
+				<small>Now</small>
+				<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+			</div>
+			<div class="toast-body">
+				{% if user.is_authenticated %}
+					Hi {{ user.username }}!
+				{% else %}
+					<p>You are not logged in</p>
+					<a href="{% url 'login' %}">Log In</a>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

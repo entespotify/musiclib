@@ -1,7 +1,10 @@
 from django.shortcuts import render
 from accounts.models import User
-from accounts.api.serializers import UserSerializer
+from rest_framework.decorators import authentication_classes, permission_classes
+from rest_framework.permissions import IsAuthenticated
 
+@permission_classes([IsAuthenticated,])
+@authentication_classes([IsAuthenticated,])
 def accountView(request):
 
     users = User.objects.filter()

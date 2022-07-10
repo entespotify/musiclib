@@ -1,0 +1,2 @@
+var hey="hiii";console.log(hey),$(document).ready(function(){console.log("ready!"),$("#login").click(function(){var o=$("#inputUsername").val(),n=$("#inputPassword").val(),e=$(".users");$.ajax({url:"/api/accounts/login/token",type:"post",data:{username:o,password:n},dataType:"json",success:function(o){console.info(o),console.info(o.token),$.ajax({url:"/api/accounts/users",type:"get",headers:{Authorization:"Token "+o.token},dataType:"json",success:function(o){console.log(o),e.text(o)}})}})})});
+console.log("Hiii");

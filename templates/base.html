@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Musiclib{% endblock %}</title>
+    {% include 'headerfooter/css.html' %}
+    <meta name="color-scheme" content="dark light">
+</head>
+<body>
+  {% include 'headerfooter/navigation.html' %}
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+  {% include 'headerfooter/js.html' %} 
+</body>
+</html>
